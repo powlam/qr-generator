@@ -24,10 +24,15 @@ class GenerateQr extends Controller
             $qrCode->style($request->validated('qrType'));
         }
 
+        if ($isPNG = self::canGeneratePNG()) {
+            $qrCode->format('png');
+        }
+
         $qr = $qrCode->generate($request->validated('linkToConvert'));
 
         return view('welcome', [
             'qr' => $qr,
+            'png' => $isPNG,
             'link' => $request->validated('linkToConvert'),
             'color' => $request->validated('qrColor'),
             'style' => $request->validated('qrType'),
@@ -44,5 +49,11 @@ class GenerateQr extends Controller
             'green' => 0xFF & ($colorVal >> 0x8),
             'blue' => 0xFF & $colorVal,
         ];
+    }
+
+    public static function canGeneratePNG(): bool
+    {
+        // You must install the imagick PHP extension if you plan on using the png image format: https://mlocati.github.io/articles/php-windows-imagick.html
+        return extension_loaded('imagick');
     }
 }

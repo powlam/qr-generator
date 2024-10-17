@@ -50,15 +50,26 @@
                                 </select>
                             </div>
 
-                            <div id="qrContainer" class="flex flex-col justify-center items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]">
+                            <div id="qrContainer" class="relative flex flex-col justify-center items-center gap-6 overflow-hidden rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]">
                                 @if ($qr ?? false)
-                                    <div class="bg-white">{!! $qr !!}</div>
+                                    <div>
+                                        @if ($png ?? false)
+                                            <img src="data:image/png;base64,{!! base64_encode($qr) !!}" />
+                                        @else
+                                            {!! $qr !!}
+                                        @endif
+                                    </div>
                                     <a href="{{ $link }}" target="_blank" rel="noopener noreferrer"
                                         class="w-full text-center truncate cursor-pointer"
                                         title="{{ $link }}"
                                     >
                                         {{ $link }}
                                     </a>
+                                    @if ($png ?? false)
+                                        <x-badge-blue class="absolute block cursor-default top-2 right-2">PNG</x-badge-blue>
+                                    @else
+                                        <x-badge-yellow class="absolute block cursor-default top-2 right-2">SVG</x-badge-yellow>
+                                    @endif
                                 @endif
                             </div>
                         </div>
