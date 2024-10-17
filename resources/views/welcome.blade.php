@@ -28,25 +28,25 @@
                     <main class="mt-6">
                         <div class="grid gap-6 lg:grid-flow-col lg:grid-rows-3 lg:gap-8">
                             <div class="flex items-center justify-between gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20] formField">
-                                <label for="linkToConvert inline-block w-20">Link</label>
+                                <label for="linkToConvert inline-block w-20">@lang('Link')</label>
                                 <input type="text" name="linkToConvert" id="linkToConvert"
                                     value="{{ $link ?? null }}"
                                     class="w-3/4 px-2 py-1 bg-white rounded-md text-black/70" autofocus />
                             </div>
 
                             <div class="flex items-center justify-between gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20] formField">
-                                <label for="qrColor">Color</label>
+                                <label for="qrColor">@lang('Color')</label>
                                 <input type="color" name="qrColor" id="qrColor"
                                     value="{{ $color ?? null }}"
                                     class="w-3/4 px-1 bg-white rounded-md text-black/70" />
                             </div>
 
                             <div class="flex items-center justify-between gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20] formField">
-                                <label for="qrType">Style</label>
+                                <label for="qrType">@lang('Estilo')</label>
                                 <select name="qrType" id="qrType" class="w-3/4 px-2 py-1 bg-white rounded-md text-black/70">
-                                    <option value="square" @selected(($style ?? null) === 'square')>Cuadrados</option>
-                                    <option value="dot" @selected(($style ?? null) === 'dot')>Puntos</option>
-                                    <option value="round" @selected(($style ?? null) === 'round')>Redondeado</option>
+                                    <option value="square" @selected(($style ?? null) === 'square')>@lang('Cuadrados')</option>
+                                    <option value="round" @selected(($style ?? null) === 'round')>@lang('Redondeado')</option>
+                                    <option value="dot" @selected(($style ?? null) === 'dot')>@lang('Puntos')</option>
                                 </select>
                             </div>
 
