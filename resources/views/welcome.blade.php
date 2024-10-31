@@ -17,7 +17,7 @@
         <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
             <img id="background" class="fixed top-0 left-0 w-full h-full opacity-40" src="{{ Vite::asset('resources/images/colorful-geometry-shapes-830.jpg') }}" alt="Laravel background" />
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <form method="post" action="/" class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+                <form method="post" action="." class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                     @csrf
                     <header class="grid items-center grid-cols-2 gap-2 py-10 lg:grid-cols-3">
                         <div class="flex lg:justify-center lg:col-start-2">
