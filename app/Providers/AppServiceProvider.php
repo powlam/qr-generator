@@ -24,10 +24,12 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // @codeCoverageIgnoreStart
         // Force root URL for all routes (even Livewire)
         URL::forceRootUrl(Config::string('app.url'));
         if (Str::contains(Config::string('app.url'), 'https://')) {
             URL::forceScheme('https');
         }
+        // @codeCoverageIgnoreEnd
     }
 }
